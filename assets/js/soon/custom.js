@@ -24,7 +24,7 @@ COMMING SOON PAGE
             hours.html('<h1>0</h1><p>Hour</p>');
             minutes.html('<h1>0</h1><p>Minute</p>');
             seconds.html('<h1>0</h1><p>Second</p>');
-            message.html('Dirk ist jetzt bei Monday Consulting!');
+            message.html('<b>Dirk</b> ist jetzt bei <b>Monday Consulting</b>...');
         }
         else{
             var s = -now.getTimezoneOffset()*60 + (launch.getTime() - now.getTime())/1000;
