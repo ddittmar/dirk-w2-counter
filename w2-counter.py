@@ -20,14 +20,10 @@ class MsgHandler(webapp2.RequestHandler):
             if (msg):
                 msg = msg.strip()
                 mail.send_mail(
-                    sender = 'W2-Counter <do-not-reply@dirk-w2-counter.appspot.com>',
-                    to = 'Dirk Dittmar <dirk.dittmar@test.va>',
+                    sender = 'W2-Counter <do-not-reply@dirk-w2-counter.appspotmail.com>',
+                    to = 'Dirk Dittmar <papst@vatican.va>',
                     subject = 'a message arrived...',
-                    body = """someone send you a message:
-<BEGIN>
-%s
-<END>
-""" % msg
+                    body = msg
                 )
 
 
