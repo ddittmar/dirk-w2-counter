@@ -33,7 +33,7 @@
         <div class="container">
             <header>
                 <!-- HEADLINE -->
-                <h1 data-animated="GoIn"><b>Dirk</b> ist nicht mehr lange bei <b>wortzwei</b>...</h1>
+                <h1 data-animated="GoIn"><b>Dirk</b> ist nicht mehr lange bei <b>w2</b>...</h1>
             </header>
             <!-- START TIMER -->
             <div id="timer" data-animated="FadeIn">
@@ -66,14 +66,8 @@
               <li data-transition="slideleft" data-slotamount="1" data-thumb="//farm3.staticflickr.com/2908/13910255208_c14db51b45_c.jpg">
                 <img src="//farm3.staticflickr.com/2908/13910255208_5d1e5d186a_h.jpg">
               </li>
-              <li data-transition="slideleft" data-slotamount="1" data-thumb="//farm6.staticflickr.com/5240/14078358727_01ce2418d7_c.jpg">
-                <img src="//farm6.staticflickr.com/5240/14078358727_fee6900f47_h.jpg">
-              </li>
               <li data-transition="slideleft" data-slotamount="1" data-thumb="//farm4.staticflickr.com/3694/13890380784_d9f150bdc3_c.jpg">
                 <img src="//farm4.staticflickr.com/3694/13890380784_94bdc87505_h.jpg">
-              </li>
-              <li data-transition="slideleft" data-slotamount="1" data-thumb="//farm9.staticflickr.com/8399/8710202943_82d66ebae4_c.jpg">
-                <img src="//farm9.staticflickr.com/8399/8710202943_7f46d01f01_h.jpg">
               </li>
               <li data-transition="slideleft" data-slotamount="1" data-thumb="//farm8.staticflickr.com/7372/13901394159_d9a533667a_c.jpg">
                 <img src="//farm8.staticflickr.com/7372/13901394159_b347a28948_h.jpg">
@@ -105,6 +99,7 @@
               $.post(action + '/msg', $form.serialize()).done(
                 function() {
                   $('#inputMessage').val('');
+                  $('.modal').modal();
                 });
             });
         })
@@ -112,4 +107,15 @@
     </script>
   </body>
   <!-- END BODY -->
+
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          Danke für deine Nachricht :-)
+        </div>
+      </div>
+    </div>
+  </div>
+
 </html>
