@@ -91,18 +91,20 @@
       $(document).ready(function() {
         $('#msg-form').submit(function(e) {
           e.preventDefault();
-          var $form = $(this)
-          var action = $form.attr('action')
-          $.get(action + '/uuid').done(
-            function(uid) {
-              $('#uid').val(uid);
-              $.post(action + '/msg', $form.serialize()).done(
-                function() {
-                  $('#inputMessage').val('');
-                  $('.modal').modal();
-                });
-            });
-        })
+          if ($('#inputMessage').val().trim() != '') {
+            var $form = $(this)
+            var action = $form.attr('action')
+            $.get(action + '/uuid').done(
+              function(uid) {
+                $('#uid').val(uid);
+                $.post(action + '/msg', $form.serialize()).done(
+                  function() {
+                    $('#inputMessage').val('');
+                    $('.modal').modal();
+                  });
+              });
+          }
+        });
       });
     </script>
   </body>
