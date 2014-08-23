@@ -1,0 +1,19 @@
+application: conky-ddweather-location
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries:
+- name: webapp2
+  version: latest
+- name: webob
+  version: latest
+
+handlers:
+- url: /
+  static_files: static/index.html
+  upload: static/index.html
+- url: /(.+)
+  static_files: static/\1
+  upload: static/(.+)
