@@ -46,12 +46,13 @@
             <!-- END TIMER -->
             <div class="col-lg-4 col-lg-offset-4 mt centered">
             	<h4>Schreib mir eine Nachricht:</h4>
-      				<form role="form">
+      				<form id="msg-form" role="form" method="post" action="/app">
       				  <div class="form-group">
       				    <label class="sr-only" for="inputMessage">Message:</label>
-      				    <textarea class="form-control" id="inputMessage" placeholder="Message..." rows="3"></textarea>
+      				    <textarea class="form-control" id="inputMessage" placeholder="Message..." rows="3" name="msg"></textarea>
+                  <input type="hidden" name="uid" id="uid" value="" />
       				  </div>
-      				  <button type="submit" class="btn btn-info">Submit</button>
+      				  <button type="submit" id="send-btn" class="btn btn-info">Send</button>
       				</form>            
       			</div>
             
@@ -86,12 +87,29 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	  <script type="text/javascript" src="assets/js/modernizr.custom.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="assets/js/soon/plugins.js"></script>
-    <script src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
-    <script src="assets/js/soon/custom.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/js/soon/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/soon/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="assets/js/soon/custom.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#msg-form').submit(function(e) {
+          e.preventDefault();
+          var $form = $(this)
+          var action = $form.attr('action')
+          $.get(action + '/uuid').done(
+            function(uid) {
+              $('#uid').val(uid);
+              $.post(action + '/msg', $form.serialize()).done(
+                function() {
+                  $('#inputMessage').val('');
+                });
+            });
+        })
+      });
+    </script>
   </body>
   <!-- END BODY -->
 </html>
