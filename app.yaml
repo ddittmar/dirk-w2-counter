@@ -12,7 +12,7 @@ libraries:
 
 handlers:
 - url: /app/.*
-  script: w2-counter.application
+  script: w2counter.application
 - url: /
   static_files: static/index.html
   upload: static/index.html

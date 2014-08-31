@@ -6,7 +6,7 @@ COMMING SOON PAGE
     * Set your date here  (YEAR, MONTH (0 for January/11 for December), DAY, HOUR, MINUTE, SECOND)
     * according to the GMT+0 Timezone
     **/
-    var launch = new Date(2014, 08, 31, 18, 00, 00);
+    var launch = new Date(2014, 09, 1, 0, 0, 0);
     /**
     * The script
     **/
@@ -27,7 +27,7 @@ COMMING SOON PAGE
             message.html('<b>Dirk</b> ist jetzt bei <b>Monday Consulting</b>...');
         }
         else{
-            var s = -now.getTimezoneOffset()*60 + (launch.getTime() - now.getTime())/1000;
+            var s = (launch.getTime() - now.getTime()) / 1000;
             var d = Math.floor(s/86400);
             days.html('<h1>'+d+'</h1><p>Day'+(d>1?'s':''),'</p>');
             s -= d*86400;
@@ -115,20 +115,4 @@ SLIDER
             fullScreen:"on"
     });
 })(jQuery);
-/******************************************************************************************************************************
-BOOTSTRAP
-*******************************************************************************************************************************/
-(function($) {
-    "use strict";
-        $('[data-rel=tooltip]').tooltip();
-        $(".alert").alert();
-})(jQuery);
-/******************************************************************************************************************************
-PROGRESS BAR
-*******************************************************************************************************************************/
-(function($) {
-    "use strict";
-    $("a.btn-progress").click(function(){
-        $('#bar-container').slideToggle(); 
-    });
-})(jQuery);
+
